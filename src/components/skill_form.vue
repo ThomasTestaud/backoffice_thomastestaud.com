@@ -1,10 +1,10 @@
 <template>
     <form @submit.prevent="submitForm">
       <label for="text-input">Skill:</label>
-      <input type="text" id="text-input" v-model="title" required>
+      <input type="text" id="text-input" v-model="textInput" required>
       
       <label for="textarea-input">Skill description:</label>
-      <textarea id="textarea-input" v-model="description" required></textarea>
+      <textarea id="textarea-input" v-model="textareaInput" required></textarea>
       
       <input type="hidden" id="hidden-input" v-model="hiddenInput">
       
@@ -17,16 +17,17 @@
 
     export default {
         name: 'skill_form',
-        /*
         props: {
             title: String,
             description: String
-        },*/
+        },
       data() {
         return {
-          title: this.title,
-          description: this.description,
+            
+          textInput: this.title,
+          textareaInput: this.description,
           hiddenInput: ''
+          
         }
       },
       methods: {
