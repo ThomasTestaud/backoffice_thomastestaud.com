@@ -1,15 +1,14 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <looper_skill_form/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import looper_skill_form from './components/looper_skill_form.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    looper_skill_form
   }
 }
 </script>
