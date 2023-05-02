@@ -1,11 +1,11 @@
 <template>
     <div>
-      <h1>My Vue App</h1>
+      <h1>Edit skills</h1>
       <div v-if="forms.length > 0">
-        <skill_form v-for="(form, index) in forms" :key="index" :form-data="form" />
+        <skill_form v-for="(form, index) in forms" :title="form.comp" :description="form.comp_description" :key="index" :form-data="form" />
       </div>
       <div v-else>
-        <p>Loading forms...</p>
+        <p>Chargement...</p>
       </div>
     </div>
   </template>
@@ -29,6 +29,7 @@
         axios.get('https://skillsapi.thomastestaud.com/index.php?route=api&user=0')
           .then(response => {
             this.forms = response.data;
+            console.log(response.data);
           })
           .catch(error => {
             console.log(error);
