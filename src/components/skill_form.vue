@@ -1,14 +1,14 @@
 <template>
     <form @submit.prevent="submitForm">
       <label for="text-input">Skill:</label>
-      <input type="text" id="text-input" v-model="textInput" required>
+      <input type="text" id="text-input" v-model="skillTitle" required>
       
       <label for="textarea-input">Skill description:</label>
-      <textarea id="textarea-input" v-model="textareaInput" required></textarea>
+      <textarea id="textarea-input" v-model="skillDesc" required></textarea>
       
-      <input type="text" id="skill-id" v-model="skillId">
+      <input type="hidden" id="skill-id" v-model="skillId">
       
-      <button type="submit">Valider</button>
+      <button type="submit">Update</button>
     </form>
   </template>
   
@@ -25,8 +25,8 @@
       data() {
         return {
             
-          textInput: this.title,
-          textareaInput: this.description,
+          skillTitle: this.title,
+          skillDesc: this.description,
           skillId: this.id
           
         }
@@ -36,9 +36,9 @@
         
           // perform ajax request using axios
           axios.put('https://skillsapi.thomastestaud.com/index.php?route=api', {
-            textInput: this.textInput,
-            textareaInput: this.textareaInput,
-            hiddenInput: this.hiddenInput
+            skillTitle: this.skillTitle,
+            skillDescription: this.skillDesc,
+            skillId: this.id
           }).then(response => {
             // handle successful response here
             console.log(response);
