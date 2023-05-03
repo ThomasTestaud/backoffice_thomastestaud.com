@@ -2,7 +2,7 @@
     <div>
       <h1>Edit skills</h1>
       <div v-if="forms.length > 0">
-        <skill_form v-for="(form, index) in forms" :title="form.comp" :description="form.comp_description" :key="index" :form-data="form" />
+        <skill_form v-for="(form, index) in forms" :title="form.comp" :description="form.comp_description" :id="form.id" :key="index" :form-data="form" />
       </div>
       <div v-else>
         <p>Chargement...</p>

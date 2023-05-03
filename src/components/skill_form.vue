@@ -6,9 +6,9 @@
       <label for="textarea-input">Skill description:</label>
       <textarea id="textarea-input" v-model="textareaInput" required></textarea>
       
-      <input type="hidden" id="hidden-input" v-model="hiddenInput">
+      <input type="text" id="skill-id" v-model="skillId">
       
-      <button type="submit">Submit</button>
+      <button type="submit">Valider</button>
     </form>
   </template>
   
@@ -19,21 +19,22 @@
         name: 'skill_form',
         props: {
             title: String,
-            description: String
+            description: String,
+            id : Number
         },
       data() {
         return {
             
           textInput: this.title,
           textareaInput: this.description,
-          hiddenInput: ''
+          skillId: this.id
           
         }
       },
       methods: {
         submitForm() {
         
-          // perform ajax request using axios or any other library
+          // perform ajax request using axios
           axios.put('https://skillsapi.thomastestaud.com/index.php?route=api', {
             textInput: this.textInput,
             textareaInput: this.textareaInput,
